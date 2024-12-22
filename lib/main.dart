@@ -535,40 +535,50 @@ class FavoritesPage extends StatelessWidget {
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             )
-          : ListView.builder(
-              itemCount: favoriteRecipes.length,
-              itemBuilder: (context, index) {
-                final recipe = favoriteRecipes[index];
-                return Card(
-                  color: Theme.of(context).cardColor,
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      recipe['title'],
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      recipe['description'],
-                    ),
-                    trailing: const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  RecipeDetailPage(recipe: recipe)));
-                    },
-                  ),
-                );
-              }),
+          : Column(
+              children: [
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: favoriteRecipes.length,
+                      itemBuilder: (context, index) {
+                        final recipe = favoriteRecipes[index];
+                        return Card(
+                          color: Theme.of(context).cardColor,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          elevation: 4,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.zero,
+                          ),
+                          child: ListTile(
+                            title: Text(
+                              recipe['title'],
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(
+                              recipe['description'],
+                            ),
+                            trailing: const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          RecipeDetailPage(recipe: recipe)));
+                            },
+                          ),
+                        );
+                      }),
+                ),
+              ],
+            ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Go to Home',
         onPressed: () {
