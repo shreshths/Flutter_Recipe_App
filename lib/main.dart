@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                         height: 40,
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Colors.white.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Stack(
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                       height: 40,
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Stack(
@@ -344,10 +344,10 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: InkWell(
-                    hoverColor: Colors.orange.withOpacity(0.1),
+                    hoverColor: Colors.orange.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
-                    splashColor: Colors.orange.withOpacity(0.3),
-                    highlightColor: Colors.orange.withOpacity(0.1),
+                    splashColor: Colors.orange.withValues(alpha: 0.3),
+                    highlightColor: Colors.orange.withValues(alpha: 0.1),
                     onTap: () {
                       Navigator.push(
                         context,
